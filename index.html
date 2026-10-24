@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <link rel="icon" href="data:," />
+    <title>Aman &amp; Ananya — Royal Blue Scroll Invitation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Great+Vibes&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --cream: #faf5ea;
+        --cream-2: #f4eddb;
+        --blue: #16265e;
+        --blue-deep: #0d173d;
+        --blue-panel: #1b2f6e;
+        --gold: #b8934a;
+        --gold-deep: #96762f;
+        --gold-bright: #e6c87e;
+        --gold-soft: #d9bd7f;
+        --ink: #262a3e;
+        --ink-soft: #55534a;
+        --line: rgba(150, 118, 47, 0.45);
+      }
+      * { box-sizing: border-box; }
+      html { margin: 0; padding: 0; }
+      body {
+        margin: 0;
+        background: var(--blue-deep);
+        background-image: radial-gradient(120% 60% at 50% 0%, #1a2c66 0%, var(--blue-deep) 55%);
+        font-family: "Cormorant Garamond", "Times New Roman", serif;
+        color: var(--ink);
+        -webkit-font-smoothing: antialiased;
+      }
+      .invite {
+        max-width: 600px;
+        margin: 0 auto;
+        background: var(--cream);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.45);
+        overflow: hidden;
+      }
+      section { position: relative; }
+      .pad { padding: 3.2rem 1.6rem; }
+      .center { text-align: center; }
+
+      /* ---------- shared pieces ---------- */
+      .caps {
+        text-transform: uppercase;
+        letter-spacing: 0.32em;
+        font-weight: 500;
+      }
+      .rule-heart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.9rem;
+        margin: 1.4rem auto;
+        max-width: 300px;
+      }
+      .rule-heart::before,
+      .rule-heart::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+      .rule-heart svg { width: 13px; height: 13px; fill: var(--gold); flex: none; }
+      .btn {
+        display: inline-block;
+        margin-top: 1.3rem;
+        padding: 0.85rem 2.4rem;
+        border-radius: 999px;
+        background: var(--blue);
+        border: 1px solid var(--gold);
+        color: var(--gold-bright);
+        font-family: "Cormorant Garamond", serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-indent: 0.3em;
+        transition: background 0.25s ease, color 0.25s ease;
+      }
+      .btn:hover, .btn:focus-visible { background: var(--gold-deep); color: #fff8e7; }
+      .btn.on-blue { background: rgba(230, 200, 126, 0.1); }
+      .btn.on-blue:hover, .btn.on-blue:focus-visible { background: var(--gold-deep); }
+      .sprig { position: absolute; color: var(--gold); opacity: 0.75; pointer-events: none; }
+      .torn { display: block; width: 100%; height: 16px; margin-bottom: -1px; }
+
+      /* ---------- header ---------- */
+      .hero-head { padding: 3.4rem 1.6rem 2.2rem; overflow: hidden; }
+      .sprig.tl { top: -14px; left: -30px; width: 150px; transform: rotate(38deg); }
+      .sprig.tr { top: -14px; right: -30px; width: 150px; transform: scaleX(-1) rotate(38deg); }
+      .quote {
+        max-width: 340px;
+        margin: 0 auto;
+        font-size: 0.98rem;
+        line-height: 1.75;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .quote .attr {
+        display: block;
+        margin-top: 0.7rem;
+        font-size: 0.78rem;
+        letter-spacing: 0.3em;
+        color: var(--gold-deep);
+      }
+      .monogram { margin-top: 2.2rem; display: flex; justify-content: center; }
+      .monogram svg { width: min(196px, 54vw); height: auto; display: block; }
+      .our-wedding { margin-top: 0.9rem; font-size: 1.05rem; color: var(--ink); }
+
+      /* ---------- photos ---------- */
+      figure.photo { margin: 0; position: relative; line-height: 0; }
+      figure.photo img { width: 100%; height: auto; display: block; }
+      figure.photo .tear {
+        position: absolute; left: 0; right: 0; bottom: -1px;
+        width: 100%; height: 22px; display: block;
+      }
+      figure.photo .tear-top {
+        position: absolute; left: 0; right: 0; top: -1px;
+        width: 100%; height: 22px; display: block;
+      }
+
+      /* ---------- invitation text / parents ---------- */
+      .invite-text {
+        max-width: 420px;
+        margin: 0 auto;
+        font-size: 1.02rem;
+        line-height: 1.85;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+      .parents {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.4rem 1rem;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+      .parents .plabel {
+        font-size: 0.78rem;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-deep);
+        margin-bottom: 0.55rem;
+      }
+      .parents .pname { font-size: 1.08rem; line-height: 1.55; font-weight: 500; color: var(--ink); }
+      .fullnames { margin-top: 2rem; }
+      .fullnames .fname { font-size: 1.22rem; font-weight: 600; letter-spacing: 0.05em; color: var(--blue); }
+      .fullnames .fparents { margin-top: 0.2rem; font-size: 1.02rem; font-style: italic; line-height: 1.6; color: var(--ink-soft); }
+      @media (max-width: 430px) {
+        .parents { grid-template-columns: 1fr; }
+      }
+
+      /* ---------- names & date ---------- */
+      .names { padding-top: 1.2rem; overflow: hidden; }
+      .sprig.bl { bottom: 6px; left: -34px; width: 140px; transform: rotate(-140deg); }
+      .sprig.br { bottom: 6px; right: -34px; width: 140px; transform: scaleX(-1) rotate(-140deg); }
+      .script {
+        font-family: "Great Vibes", cursive;
+        font-weight: 400;
+        color: var(--blue);
+        line-height: 1.05;
+      }
+      .script .name { display: block; font-size: clamp(4rem, 17vw, 5.6rem); }
+      .script .amp { display: block; font-size: clamp(2rem, 8vw, 2.7rem); color: var(--gold-deep); margin: 0.1rem 0; }
+      .honour {
+        margin-top: 1.6rem;
+        font-size: 0.95rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        line-height: 1.9;
+        color: var(--ink-soft);
+      }
+      .dateblock { margin-top: 2.2rem; }
+      .dateblock .month { font-size: 1.05rem; letter-spacing: 0.42em; text-indent: 0.42em; color: var(--ink); }
+      .date-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        margin-top: 0.6rem;
+      }
+      .date-row .side {
+        font-size: 1rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--ink);
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        padding: 0.45rem 0.2rem;
+        min-width: 104px;
+      }
+      .date-row .day {
+        font-size: clamp(3.6rem, 15vw, 5rem);
+        font-weight: 400;
+        line-height: 1;
+        color: var(--blue);
+      }
+      .date-note { margin-top: 1rem; font-style: italic; font-size: 1.12rem; color: var(--gold-deep); }
+
+      /* ---------- blue sections ---------- */
+      .blue { background: var(--blue); color: #f3ecd9; }
+      .blue .sec-title { color: var(--gold-bright); font-size: 1.15rem; }
+      .blue .venue-name {
+        margin-top: 0.9rem;
+        font-size: clamp(1.7rem, 7vw, 2.2rem);
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #fdf8ec;
+      }
+      .blue .venue-city { margin-top: 0.4rem; font-style: italic; font-size: 1.15rem; color: var(--gold-soft); }
+      .blue .venue-addr {
+        margin: 0.9rem auto 0;
+        max-width: 420px;
+        font-size: 1.02rem;
+        line-height: 1.7;
+        color: rgba(243, 236, 217, 0.82);
+      }
+      .blue .rule-heart::before, .blue .rule-heart::after { background: rgba(217, 189, 127, 0.5); }
+      .blue .rule-heart svg { fill: var(--gold-bright); }
+
+      /* ---------- itinerary ---------- */
+      .sec-title-dark { color: var(--blue); font-size: 1.15rem; }
+      .panel {
+        background: var(--blue-panel);
+        background-image: radial-gradient(130% 100% at 50% 0%, #27408a 0%, var(--blue-panel) 60%, #152557 100%);
+        margin: 1.8rem -1.6rem -3.2rem;
+        padding: 2.6rem 1.6rem 3rem;
+        color: #f3ecd9;
+      }
+      .day-label {
+        text-align: center;
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--gold-bright);
+        margin: 1.9rem 0 1.2rem;
+      }
+      .day-label:first-child { margin-top: 0; }
+      .timeline { max-width: 400px; margin: 0 auto; }
+      .t-item {
+        display: grid;
+        grid-template-columns: 44px 22px 1fr;
+        align-items: start;
+        column-gap: 0.4rem;
+      }
+      .t-icon {
+        width: 40px; height: 40px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .t-icon svg { width: 27px; height: 27px; stroke: var(--gold-soft); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+      .t-rail { position: relative; align-self: stretch; display: flex; justify-content: center; }
+      .t-rail::before {
+        content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+        background: rgba(217, 189, 127, 0.45);
+      }
+      .t-item:first-of-type .t-rail::before { top: 14px; }
+      .t-item:last-of-type .t-rail::before { bottom: auto; height: 14px; }
+      .t-dot {
+        position: relative; z-index: 1; margin-top: 11px;
+        width: 7px; height: 7px; border-radius: 50%;
+        background: var(--gold-bright);
+      }
+      .t-body { padding: 0.35rem 0 1.5rem; text-align: left; }
+      .t-item:last-child .t-body { padding-bottom: 0.2rem; }
+      .t-time { font-size: 0.88rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold-soft); }
+      .t-name { font-size: 1.35rem; font-weight: 600; letter-spacing: 0.04em; color: #fdf8ec; margin-top: 0.15rem; }
+      .t-venue { font-style: italic; font-size: 1.02rem; color: rgba(243, 236, 217, 0.78); margin-top: 0.1rem; }
+      .t-dress { font-size: 0.82rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-bright); margin-top: 0.45rem; }
+
+      /* ---------- rsvp / confirmation ---------- */
+      .info-block { max-width: 430px; margin: 0 auto; }
+      .info-icon svg {
+        width: 40px; height: 40px;
+        stroke: var(--gold-deep); fill: none; stroke-width: 1.3;
+        stroke-linecap: round; stroke-linejoin: round;
+      }
+      .info-title { margin-top: 0.7rem; font-size: 1.05rem; color: var(--blue); }
+      .info-text { margin-top: 0.6rem; font-size: 1.13rem; line-height: 1.65; color: var(--ink-soft); }
+      .closing-line {
+        font-size: 1rem; line-height: 2; color: var(--ink);
+        max-width: 340px; margin: 0 auto;
+      }
+      .footer-band {
+        background: var(--blue-deep);
+        color: var(--gold-soft);
+        text-align: center;
+        padding: 1.1rem 1rem 1.25rem;
+        font-size: 0.85rem;
+        letter-spacing: 0.34em;
+        text-transform: uppercase;
+        line-height: 1.9;
+      }
+      .footer-band .fm { color: var(--gold-bright); font-size: 1.05rem; }
+
+      /* ---------- our story ---------- */
+      .story { padding-top: 0.6rem; }
+      .story-list { max-width: 440px; margin: 0.2rem auto 0; text-align: left; }
+      .story-item { display: grid; grid-template-columns: 22px 1fr; column-gap: 0.9rem; }
+      .story-rail { position: relative; display: flex; justify-content: center; }
+      .story-rail::before {
+        content: ""; position: absolute; top: 0; bottom: 0; width: 1px;
+        background: var(--line);
+      }
+      .story-item:first-of-type .story-rail::before { top: 12px; }
+      .story-item:last-of-type .story-rail::before { bottom: auto; height: 12px; }
+      .story-dot {
+        position: relative; z-index: 1; margin-top: 5px;
+        width: 9px; height: 9px; border-radius: 50%;
+        background: var(--gold); border: 2px solid var(--cream);
+        box-shadow: 0 0 0 1px var(--gold);
+      }
+      .story-body { padding-bottom: 2.2rem; }
+      .story-item:last-child .story-body { padding-bottom: 0; }
+      .story-chapter { font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold-deep); }
+      .story-title {
+        font-family: "Great Vibes", cursive;
+        font-size: 2.1rem; line-height: 1.15; color: var(--blue);
+        margin-top: 0.25rem;
+      }
+      .story-item.has-photo .story-body { padding-bottom: 0; }
+      .story-photo {
+        grid-column: 1 / -1;
+        max-width: 318px;
+        margin: 1.1rem auto 2.4rem;
+        padding: 9px;
+        background: #fffdf7;
+        border: 1px solid var(--line);
+        box-shadow: 0 12px 26px rgba(22, 38, 94, 0.14);
+        line-height: 0;
+      }
+      .story-photo img {
+        width: 100%; height: auto; display: block;
+        border-radius: 2px;
+      }
+      .story-text { margin-top: 0.8rem; font-size: 1.08rem; line-height: 1.65; color: var(--ink-soft); }
+      .story-place { font-style: italic; color: var(--gold-deep); }
+
+      /* ---------- rsvp buttons ---------- */
+      .rsvp-btns {
+        display: flex; flex-direction: column; align-items: center;
+        gap: 0.75rem; margin-top: 1.3rem;
+      }
+      .rsvp-btns .btn { margin-top: 0; min-width: 240px; text-align: center; }
+    </style>
+  </head>
+  <body>
+    <!-- reusable gold sprig + heart -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <g id="sprigArt">
+          <path d="M60 158 C54 112, 57 58, 74 6" fill="none" stroke="currentColor" stroke-width="1.6" />
+          <path d="M58 134 C38 132, 23 119, 18 100 C38 102, 53 115, 58 134 Z" fill="rgba(184,147,74,0.10)" stroke="currentColor" stroke-width="1.3" />
+          <path d="M59 108 C79 104, 92 91, 96 72 C76 76, 63 89, 59 108 Z" fill="rgba(184,147,74,0.10)" stroke="currentColor" stroke-width="1.3" />
+          <path d="M61 82 C42 78, 29 65, 25 46 C44 50, 57 63, 61 82 Z" fill="rgba(184,147,74,0.10)" stroke="currentColor" stroke-width="1.3" />
+          <path d="M66 54 C83 48, 94 35, 97 17 C80 21, 69 33, 66 54 Z" fill="rgba(184,147,74,0.10)" stroke="currentColor" stroke-width="1.3" />
+          <path d="M74 6 C70 18, 72 30, 79 39 C86 28, 84 14, 74 6 Z" fill="rgba(184,147,74,0.10)" stroke="currentColor" stroke-width="1.3" />
+        </g>
+        <path id="heartArt" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+      </defs>
+    </svg>
+
+    <main class="invite">
+      <!-- ======== HEADER ======== -->
+      <section class="hero-head center">
+        <svg class="sprig tl" viewBox="0 0 120 160" aria-hidden="true"><use href="#sprigArt" /></svg>
+        <svg class="sprig tr" viewBox="0 0 120 160" aria-hidden="true"><use href="#sprigArt" /></svg>
+
+        <p class="quote">
+          &ldquo;In all the world, there is no heart for me like yours. In all the
+          world, there is no love for you like mine.&rdquo;
+          <span class="attr">Maya Angelou</span>
+        </p>
+
+        <div class="monogram">
+          <svg viewBox="0 0 220 262" role="img" aria-label="Interlocked A and A monogram with a small lotus above, inside a gold arch frame">
+            <!-- jharokha arch frame -->
+            <path d="M110 14 C104 31, 91 43, 77 57 C59 75, 35 85, 35 121 L35 244 L185 244 L185 121 C185 85, 161 75, 143 57 C129 43, 116 31, 110 14 Z"
+                  fill="rgba(184,147,74,0.05)" stroke="#b8934a" stroke-width="2.4" />
+            <path d="M110 27 C105 41, 94 51, 82 63 C66 79, 44 88, 44 122 L44 244 L176 244 L176 122 C176 88, 154 79, 138 63 C126 51, 115 41, 110 27 Z"
+                  fill="none" stroke="#b8934a" stroke-width="0.9" opacity="0.65" />
+            <circle cx="110" cy="9" r="3.4" fill="#b8934a" />
+            <!-- small lotus above the letters -->
+            <g stroke="#96762f" stroke-width="1.2" fill="rgba(230,200,126,0.35)">
+              <path d="M97 63 C90 71, 89 81, 94 90 C101 85, 102 72, 97 63 Z" />
+              <path d="M123 63 C130 71, 131 81, 126 90 C119 85, 118 72, 123 63 Z" />
+              <path d="M110 55 C103 66, 103 79, 110 90 C117 79, 117 66, 110 55 Z" fill="rgba(230,200,126,0.55)" />
+            </g>
+            <path d="M95 95 C103 100, 117 100, 125 95" fill="none" stroke="#96762f" stroke-width="1.2" />
+            <!-- interlocked A's: fine engraved strokes, woven over / under at the crossing -->
+            <g fill="none" stroke-linejoin="round">
+              <!-- gold A (right), drawn first -->
+              <g stroke="#96762f" stroke-width="5.5">
+                <path d="M94 236 L130 118 L166 236" />
+              </g>
+              <path d="M119 199 L141 199" stroke="#96762f" stroke-width="4" />
+              <!-- royal blue A (left), passing over the gold at the crossing -->
+              <g stroke="#16265e" stroke-width="5.5">
+                <path d="M54 236 L90 118 L126 236" />
+              </g>
+              <path d="M79 199 L101 199" stroke="#16265e" stroke-width="4" />
+              <!-- gold left leg woven back over the blue below the crossing -->
+              <path d="M115.4 166 L104.4 202" stroke="#faf5ea" stroke-width="12" />
+              <path d="M115.4 166 L104.4 202" stroke="#96762f" stroke-width="5.5" />
+              <!-- serif feet -->
+              <g stroke-width="3">
+                <path d="M46 237.5 L62 237.5" stroke="#16265e" />
+                <path d="M118 237.5 L134 237.5" stroke="#16265e" />
+                <path d="M86 237.5 L102 237.5" stroke="#96762f" />
+                <path d="M158 237.5 L174 237.5" stroke="#96762f" />
+              </g>
+            </g>
+          </svg>
+        </div>
+        <p class="caps our-wedding">Our Wedding</p>
+        <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+      </section>
+
+      <!-- ======== OUR STORY ======== -->
+      <section class="pad center story">
+        <h2 class="caps sec-title-dark">Our Story</h2>
+        <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+        <div class="story-list">
+          <div class="story-item has-photo">
+            <div class="story-rail"><span class="story-dot"></span></div>
+            <div class="story-body">
+              <p class="story-chapter">Chapter One</p>
+              <p class="story-title">Where It All Began</p>
+              <p class="story-text">Our first coffee date at <span class="story-place">Big Chill, Cyberhub, Gurgaon</span> — where our story began.</p>
+            </div>
+            <figure class="story-photo">
+              <img src="assets/our-story-1.jpg" alt="Aman and Ananya holding cups of coffee at Big Chill Cafe — the photo reads 'Our First Coffee Date, Big Chill, where our story began'" />
+            </figure>
+          </div>
+          <div class="story-item has-photo">
+            <div class="story-rail"><span class="story-dot"></span></div>
+            <div class="story-body">
+              <p class="story-chapter">Chapter Two</p>
+              <p class="story-title">Pondicherry Days</p>
+              <p class="story-text">A trip to <span class="story-place">Pondicherry</span> — wandering bougainvillea-lined streets past Café Des Arts.</p>
+            </div>
+            <figure class="story-photo">
+              <img src="assets/our-story-2.jpg" alt="Aman and Ananya in white outfits standing on a bougainvillea-lined street in Pondicherry, in front of Café Des Arts" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== INVITATION & PARENTS ======== -->
+      <section class="pad center" style="padding-top:2.4rem;">
+        <p class="invite-text">
+          With great joy and grateful hearts, together with our parents, we
+          invite you to share in the celebration of our love as we unite in
+          marriage.
+        </p>
+        <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+        <div class="parents">
+          <div>
+            <p class="plabel">Parents of the Groom</p>
+            <p class="pname">Mr. Arvind Kumar Srivastava<br />&amp; Mrs. Mridula Srivastava</p>
+          </div>
+          <div>
+            <p class="plabel">Parents of the Bride</p>
+            <p class="pname">Mr. Pradeep Jaiswal<br />&amp; Mrs. Anita Jaiswal</p>
+          </div>
+        </div>
+        <div class="fullnames">
+          <p class="fname">Aman Srivastava</p>
+          <p class="fparents">Son of Mr. Arvind Kumar Srivastava &amp; Mrs. Mridula Srivastava</p>
+          <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+          <p class="fname">Ananya Jaiswal</p>
+          <p class="fparents">Daughter of Mr. Pradeep Jaiswal &amp; Mrs. Anita Jaiswal</p>
+        </div>
+      </section>
+
+      <!-- ======== NAMES & DATE ======== -->
+      <section class="pad center names">
+        <svg class="sprig bl" viewBox="0 0 120 160" aria-hidden="true"><use href="#sprigArt" /></svg>
+        <svg class="sprig br" viewBox="0 0 120 160" aria-hidden="true"><use href="#sprigArt" /></svg>
+        <h1 class="script">
+          <span class="name">Aman</span>
+          <span class="amp">&amp;</span>
+          <span class="name">Ananya</span>
+        </h1>
+        <p class="honour">We have the honour of<br />inviting you to our wedding</p>
+        <div class="dateblock">
+          <p class="caps month">December</p>
+          <div class="date-row">
+            <span class="side">Sunday</span>
+            <span class="day">06</span>
+            <span class="side">2026</span>
+          </div>
+          <p class="date-note">Celebrations continue on 7 &amp; 8 December</p>
+        </div>
+      </section>
+
+      <!-- ======== VENUE (ROYAL BLUE) ======== -->
+      <svg class="torn" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="background:#16265e;">
+        <path d="M0,0 L100,0 L100,4 L93,7 L86,3.4 L79,6.6 L72,3.2 L65,6.2 L58,3.6 L51,6.8 L44,3.4 L37,6.4 L30,3 L23,6.6 L16,3.8 L9,6.2 L4,3.6 L0,5.5 Z" fill="#faf5ea" />
+      </svg>
+      <section class="blue pad center">
+        <h2 class="caps sec-title">The Venue</h2>
+        <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+        <p class="venue-name">The Ritz Resort</p>
+        <p class="venue-city">Lucknow</p>
+        <p class="venue-addr">
+          UPSIDC Industrial Area, 1.5 km ahead of Tata Motors, Sharda Canal
+          Road, Deva Road, Anora Kala, Lucknow,<br />Uttar Pradesh 225003
+        </p>
+        <a class="btn on-blue" href="https://www.google.com/maps/search/?api=1&amp;query=The+Ritz+Resort+Lucknow" target="_blank" rel="noopener">View Location</a>
+      </section>
+      <svg class="torn" viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true" style="background:#faf5ea;">
+        <path d="M0,0 L100,0 L100,4.5 L94,7.2 L87,3.6 L80,6.4 L73,3.2 L66,6.6 L59,3.8 L52,6.2 L45,3.4 L38,6.8 L31,3.6 L24,6.4 L17,3.2 L10,6.6 L5,4 L0,6 Z" fill="#16265e" />
+      </svg>
+
+      <!-- ======== ITINERARY ======== -->
+      <section class="pad center" style="padding-bottom:0;">
+        <h2 class="caps sec-title-dark">Itinerary of Activities</h2>
+        <div class="panel">
+          <p class="day-label">Sunday · 6 December</p>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v11" /><circle cx="6.5" cy="18" r="2.6" /><circle cx="16.5" cy="15" r="2.6" /></svg>
+              </div>
+              <div class="t-rail"><span class="t-dot"></span></div>
+              <div class="t-body">
+                <p class="t-time">7:00 PM</p>
+                <p class="t-name">Engagement Ceremony &amp; Sangeet</p>
+                <p class="t-venue">Plumeria Hall</p>
+                <p class="t-dress">Dress Code · Shimmery Outfits</p>
+              </div>
+            </div>
+          </div>
+
+          <p class="day-label">Monday · 7 December</p>
+          <div class="timeline">
+            <div class="t-item">
+              <div class="t-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.6" /><path d="M12 3v2.4M12 18.6V21M3 12h2.4M18.6 12H21M5.6 5.6l1.7 1.7M16.7 16.7l1.7 1.7M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7" /></svg>
+              </div>
+              <div class="t-rail"><span class="t-dot"></span></div>
+              <div class="t-body">
+                <p class="t-time">10:30 AM</p>
+                <p class="t-name">Haldi Ceremony</p>
+                <p class="t-venue">Ficus Lawn</p>
+                <p class="t-dress">Dress Code · Yellow, Orange, Pastel Blue or White / Ivory</p>
+              </div>
+            </div>
+            <div class="t-item">
+              <div class="t-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5 7c0-1.7 3.1-3 7-3s7 1.3 7 3v10c0 1.7-3.1 3-7 3s-7-1.3-7-3V7Z" /><path d="M5 7c0 1.7 3.1 3 7 3s7-1.3 7-3" /><path d="M8.2 12.6l3 3M15.8 12.6l-3 3" /></svg>
+              </div>
+              <div class="t-rail"><span class="t-dot"></span></div>
+              <div class="t-body">
+                <p class="t-time">6:30 PM</p>
+                <p class="t-name">Baraat</p>
+                <p class="t-venue">Casurina Lawn</p>
+              </div>
+            </div>
+            <div class="t-item">
+              <div class="t-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M5.5 3.5C5.5 13 8.5 18 12 20c3.5-2 6.5-7 6.5-16.5" /><circle cx="5.5" cy="3.5" r="1.2" /><circle cx="18.5" cy="3.5" r="1.2" /><circle cx="12" cy="19.6" r="1.6" /></svg>
+              </div>
+              <div class="t-rail"><span class="t-dot"></span></div>
+              <div class="t-body">
+                <p class="t-time">8:00 PM</p>
+                <p class="t-name">Jaimala</p>
+                <p class="t-venue">Casurina Lawn</p>
+              </div>
+            </div>
+            <div class="t-item">
+              <div class="t-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="9.5" cy="14.5" r="5" /><circle cx="15" cy="9.5" r="4" /></svg>
+              </div>
+              <div class="t-rail"><span class="t-dot"></span></div>
+              <div class="t-body">
+                <p class="t-time">8:00 PM</p>
+                <p class="t-name">Wedding Reception</p>
+                <p class="t-venue">Casurina Lawn</p>
+                <p class="t-dress">Dress Code · Any Colour Welcome · Ethnic / Traditional</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======== CONFIRMATION ======== -->
+      <section class="pad center">
+        <div class="info-block">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.5L3 20.5l1.6-5.4A8.5 8.5 0 1 1 21 11.5Z" /><path d="M9 9.2c.6 2.3 3.4 5.1 5.8 5.8l1.4-1.4 2.3 1.1c-.2 1.3-1 2-2.2 1.9-3.9-.4-8-4.5-8.4-8.4C7.8 7 8.5 6.2 9.8 6L10.9 8.3 9 9.2Z" /></svg>
+          </div>
+          <h2 class="caps info-title">Confirmation</h2>
+          <p class="info-text">Please confirm your attendance.</p>
+          <div class="rsvp-btns">
+            <a class="btn" href="https://wa.me/919599246540?text=Hello%20Ananya!%20I%27m%20happy%20to%20confirm%20my%20attendance%20at%20your%20wedding%20on%206%20December%202026%20at%20The%20Ritz%20Resort%2C%20Lucknow." target="_blank" rel="noopener">RSVP — Ananya</a>
+            <a class="btn" href="https://wa.me/16318919738?text=Hello%20Aman!%20I%27m%20happy%20to%20confirm%20my%20attendance%20at%20your%20wedding%20on%206%20December%202026%20at%20The%20Ritz%20Resort%2C%20Lucknow." target="_blank" rel="noopener">RSVP — Aman</a>
+          </div>
+        </div>
+
+        <div class="rule-heart" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#heartArt" /></svg></div>
+
+        <p class="caps closing-line">We look forward to<br />celebrating with you</p>
+      </section>
+
+      <div class="footer-band">
+        <span class="fm">A&amp;A</span><br />06 · December · 2026 — Lucknow
+      </div>
+    </main>
+  </body>
+</html>
